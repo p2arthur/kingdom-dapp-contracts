@@ -1,0 +1,422 @@
+{
+  "version": 3,
+  "sources": [
+    "/home/arthur/Documents/bolt_hackathon/kingdom_dapp_contracts/projects/kingdom_dapp_contracts/smart_contracts/realm_treasury/contract.algo.ts"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;AAEA;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;;AAAA;;;;;;AAAA;;AAYE;;AAAA;AAAA;AAAA;;AAAA;AAAA;;AAPA;;AAAA;AAAA;AAAA;;AAAA;AALF;;;AAAA;AAAA;;;AAAA;AAKE;;;AAAA;;AALF;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AAKE;;;AAJA;AAAA;AAAA;AAAA;AAKsD;;AAA7C;AAAP;AALF;AAMoD;;AAAlD;AALF;;;;;;;;;;;;;;AAM4B;;AAA1B;AALF;;;;;;;;;;;;;;;;;;;;AAMkC;;AAAhC;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 0"
+    },
+    "5": {
+      "op": "bytecblock \"MANAGER_ADDRESS\""
+    },
+    "23": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "25": {
+      "op": "bz main_bare_routing@7",
+      "stack_out": []
+    },
+    "28": {
+      "op": "pushbytess 0xf47fc296 0xeb4a79e6 // method \"setupWeDevTreasury(uint64,uint64)void\", method \"depositToTreasury()void\"",
+      "defined_out": [
+        "Method(depositToTreasury()void)",
+        "Method(setupWeDevTreasury(uint64,uint64)void)"
+      ],
+      "stack_out": [
+        "Method(setupWeDevTreasury(uint64,uint64)void)",
+        "Method(depositToTreasury()void)"
+      ]
+    },
+    "40": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(depositToTreasury()void)",
+        "Method(setupWeDevTreasury(uint64,uint64)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(setupWeDevTreasury(uint64,uint64)void)",
+        "Method(depositToTreasury()void)",
+        "tmp%2#0"
+      ]
+    },
+    "43": {
+      "op": "match main_setupWeDevTreasury_route@3 main_depositToTreasury_route@4",
+      "stack_out": []
+    },
+    "49": {
+      "block": "main_after_if_else@11",
+      "stack_in": [],
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "50": {
+      "op": "return",
+      "stack_out": []
+    },
+    "51": {
+      "block": "main_depositToTreasury_route@4",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "53": {
+      "op": "!",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "54": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "55": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "57": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "58": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "59": {
+      "op": "return",
+      "stack_out": []
+    },
+    "60": {
+      "block": "main_setupWeDevTreasury_route@3",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "62": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "63": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "64": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "66": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "67": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "70": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "71": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "reinterpret_bytes[8]%1#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0",
+        "reinterpret_bytes[8]%1#0"
+      ]
+    },
+    "74": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%7#0",
+        "tmp%8#0"
+      ]
+    },
+    "75": {
+      "callsub": "smart_contracts/realm_treasury/contract.algo.ts::RealmTreasury.setupWeDevTreasury",
+      "op": "callsub setupWeDevTreasury",
+      "stack_out": []
+    },
+    "78": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "79": {
+      "op": "return",
+      "stack_out": []
+    },
+    "80": {
+      "block": "main_bare_routing@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "82": {
+      "op": "bnz main_after_if_else@11",
+      "stack_out": []
+    },
+    "85": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "87": {
+      "op": "!",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "88": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "89": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "90": {
+      "op": "return",
+      "stack_out": []
+    },
+    "91": {
+      "subroutine": "smart_contracts/realm_treasury/contract.algo.ts::RealmTreasury.setupWeDevTreasury",
+      "params": {
+        "projectAppId#0": "uint64",
+        "reserveTokenId#0": "uint64"
+      },
+      "block": "setupWeDevTreasury",
+      "stack_in": [],
+      "op": "proto 2 0"
+    },
+    "94": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "95": {
+      "op": "bytec_0 // \"MANAGER_ADDRESS\"",
+      "defined_out": [
+        "\"MANAGER_ADDRESS\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"MANAGER_ADDRESS\""
+      ]
+    },
+    "96": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "97": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "98": {
+      "op": "global ZeroAddress",
+      "defined_out": [
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "100": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "101": {
+      "error": "WeDevTreasury already setup",
+      "op": "assert // WeDevTreasury already setup",
+      "stack_out": []
+    },
+    "102": {
+      "op": "bytec_0 // \"MANAGER_ADDRESS\"",
+      "stack_out": [
+        "\"MANAGER_ADDRESS\""
+      ]
+    },
+    "103": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"MANAGER_ADDRESS\"",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "\"MANAGER_ADDRESS\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "105": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "106": {
+      "op": "pushbytes \"DEV_TREASURY\"",
+      "defined_out": [
+        "\"DEV_TREASURY\""
+      ],
+      "stack_out": [
+        "\"DEV_TREASURY\""
+      ]
+    },
+    "120": {
+      "op": "pushint 80 // 80",
+      "defined_out": [
+        "\"DEV_TREASURY\"",
+        "80"
+      ],
+      "stack_out": [
+        "\"DEV_TREASURY\"",
+        "80"
+      ]
+    },
+    "122": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "123": {
+      "op": "pushbytes \"COMMUNITY_TREASURY\"",
+      "defined_out": [
+        "\"COMMUNITY_TREASURY\""
+      ],
+      "stack_out": [
+        "\"COMMUNITY_TREASURY\""
+      ]
+    },
+    "143": {
+      "op": "pushint 20 // 20",
+      "defined_out": [
+        "\"COMMUNITY_TREASURY\"",
+        "20"
+      ],
+      "stack_out": [
+        "\"COMMUNITY_TREASURY\"",
+        "20"
+      ]
+    },
+    "145": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "146": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+#pragma version 10
+#pragma typetrack false
+
+// @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
+main:
+    intcblock 1 0
+    bytecblock "MANAGER_ADDRESS"
+    // smart_contracts/realm_treasury/contract.algo.ts:3
+    // export class RealmTreasury extends Contract {
+    txn NumAppArgs
+    bz main_bare_routing@7
+    pushbytess 0xf47fc296 0xeb4a79e6 // method "setupWeDevTreasury(uint64,uint64)void", method "depositToTreasury()void"
+    txna ApplicationArgs 0
+    match main_setupWeDevTreasury_route@3 main_depositToTreasury_route@4
+
+main_after_if_else@11:
+    // smart_contracts/realm_treasury/contract.algo.ts:3
+    // export class RealmTreasury extends Contract {
+    intc_1 // 0
+    return
+
+main_depositToTreasury_route@4:
+    // smart_contracts/realm_treasury/contract.algo.ts:15
+    // public depositToTreasury(): void {}
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    intc_0 // 1
+    return
+
+main_setupWeDevTreasury_route@3:
+    // smart_contracts/realm_treasury/contract.algo.ts:8
+    // public setupWeDevTreasury(projectAppId: uint64, reserveTokenId: uint64): void {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/realm_treasury/contract.algo.ts:3
+    // export class RealmTreasury extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    txna ApplicationArgs 2
+    btoi
+    // smart_contracts/realm_treasury/contract.algo.ts:8
+    // public setupWeDevTreasury(projectAppId: uint64, reserveTokenId: uint64): void {
+    callsub setupWeDevTreasury
+    intc_0 // 1
+    return
+
+main_bare_routing@7:
+    // smart_contracts/realm_treasury/contract.algo.ts:3
+    // export class RealmTreasury extends Contract {
+    txn OnCompletion
+    bnz main_after_if_else@11
+    txn ApplicationID
+    !
+    assert // can only call when creating
+    intc_0 // 1
+    return
+
+
+// smart_contracts/realm_treasury/contract.algo.ts::RealmTreasury.setupWeDevTreasury(projectAppId: uint64, reserveTokenId: uint64) -> void:
+setupWeDevTreasury:
+    // smart_contracts/realm_treasury/contract.algo.ts:8
+    // public setupWeDevTreasury(projectAppId: uint64, reserveTokenId: uint64): void {
+    proto 2 0
+    // smart_contracts/realm_treasury/contract.algo.ts:4
+    // MANAGER_ADDRESS = GlobalState<arc4.Address>()
+    intc_1 // 0
+    bytec_0 // "MANAGER_ADDRESS"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/realm_treasury/contract.algo.ts:9
+    // assert(this.MANAGER_ADDRESS.value.native !== Global.zeroAddress, 'WeDevTreasury already setup')
+    global ZeroAddress
+    !=
+    assert // WeDevTreasury already setup
+    // smart_contracts/realm_treasury/contract.algo.ts:4
+    // MANAGER_ADDRESS = GlobalState<arc4.Address>()
+    bytec_0 // "MANAGER_ADDRESS"
+    // smart_contracts/realm_treasury/contract.algo.ts:10
+    // this.MANAGER_ADDRESS.value = new arc4.Address(Txn.sender)
+    txn Sender
+    app_global_put
+    // smart_contracts/realm_treasury/contract.algo.ts:5
+    // DEV_TREASURY = GlobalState<uint64>()
+    pushbytes "DEV_TREASURY"
+    // smart_contracts/realm_treasury/contract.algo.ts:11
+    // this.DEV_TREASURY.value = 80
+    pushint 80 // 80
+    app_global_put
+    // smart_contracts/realm_treasury/contract.algo.ts:6
+    // COMMUNITY_TREASURY = GlobalState<uint64>()
+    pushbytes "COMMUNITY_TREASURY"
+    // smart_contracts/realm_treasury/contract.algo.ts:12
+    // this.COMMUNITY_TREASURY.value = 20
+    pushint 20 // 20
+    app_global_put
+    retsub

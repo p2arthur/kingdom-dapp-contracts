@@ -1,0 +1,1735 @@
+{
+  "version": 3,
+  "sources": [
+    "/home/arthur/Documents/bolt_hackathon/kingdom_dapp_contracts/projects/kingdom_dapp_contracts/smart_contracts/realm/contract.algo.ts"
+  ],
+  "mappings": "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",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 1 0 10 6"
+    },
+    "7": {
+      "op": "bytecblock \"total_kingdoms\" \"project_contribution\""
+    },
+    "45": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "47": {
+      "op": "bz main_after_if_else@9",
+      "stack_out": []
+    },
+    "50": {
+      "op": "pushbytess 0xb8447b36 0xf6e4e748 0x8a750b93 // method \"createApplication()void\", method \"optinToApplication()void\", method \"createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64)\"",
+      "defined_out": [
+        "Method(createApplication()void)",
+        "Method(createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64))",
+        "Method(optinToApplication()void)"
+      ],
+      "stack_out": [
+        "Method(createApplication()void)",
+        "Method(optinToApplication()void)",
+        "Method(createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64))"
+      ]
+    },
+    "67": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(createApplication()void)",
+        "Method(createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64))",
+        "Method(optinToApplication()void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(createApplication()void)",
+        "Method(optinToApplication()void)",
+        "Method(createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64))",
+        "tmp%2#0"
+      ]
+    },
+    "70": {
+      "op": "match main_createApplication_route@3 main_optinToApplication_route@4 main_createKingdom_route@5",
+      "stack_out": []
+    },
+    "78": {
+      "block": "main_after_if_else@9",
+      "stack_in": [],
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "79": {
+      "op": "return",
+      "stack_out": []
+    },
+    "80": {
+      "block": "main_createKingdom_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "82": {
+      "op": "!",
+      "defined_out": [
+        "tmp%12#0"
+      ],
+      "stack_out": [
+        "tmp%12#0"
+      ]
+    },
+    "83": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "84": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "86": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "87": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "90": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0"
+      ]
+    },
+    "93": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0"
+      ]
+    },
+    "96": {
+      "op": "txna ApplicationArgs 4",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0"
+      ]
+    },
+    "99": {
+      "op": "txna ApplicationArgs 5",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0"
+      ]
+    },
+    "102": {
+      "op": "txna ApplicationArgs 6",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0"
+      ]
+    },
+    "105": {
+      "op": "txna ApplicationArgs 7",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0"
+      ]
+    },
+    "108": {
+      "op": "txna ApplicationArgs 8",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0"
+      ]
+    },
+    "111": {
+      "op": "txna ApplicationArgs 9",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0"
+      ]
+    },
+    "114": {
+      "op": "txna ApplicationArgs 10",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ]
+    },
+    "117": {
+      "op": "txn GroupIndex",
+      "defined_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "tmp%25#0"
+      ]
+    },
+    "119": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1",
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "tmp%25#0",
+        "1"
+      ]
+    },
+    "120": {
+      "op": "-",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "gtxn_idx%0#0"
+      ]
+    },
+    "121": {
+      "op": "dup",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)",
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "gtxn_idx%0#0",
+        "gtxn_idx%0#0 (copy)"
+      ]
+    },
+    "122": {
+      "op": "gtxns TypeEnum",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0"
+      ]
+    },
+    "124": {
+      "op": "intc_0 // pay",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "pay",
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "gtxn_idx%0#0",
+        "gtxn_type%0#0",
+        "pay"
+      ]
+    },
+    "125": {
+      "op": "==",
+      "defined_out": [
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0",
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "gtxn_idx%0#0",
+        "gtxn_type_matches%0#0"
+      ]
+    },
+    "126": {
+      "error": "transaction type is pay",
+      "op": "assert // transaction type is pay",
+      "stack_out": [
+        "tmp%15#0",
+        "tmp%16#0",
+        "tmp%17#0",
+        "tmp%18#0",
+        "tmp%19#0",
+        "tmp%20#0",
+        "tmp%21#0",
+        "tmp%22#0",
+        "tmp%23#0",
+        "tmp%24#0",
+        "gtxn_idx%0#0"
+      ]
+    },
+    "127": {
+      "callsub": "smart_contracts/realm/contract.algo.ts::Realm.createKingdom",
+      "op": "callsub createKingdom",
+      "defined_out": [
+        "tmp%26#0"
+      ],
+      "stack_out": [
+        "tmp%26#0"
+      ]
+    },
+    "130": {
+      "op": "pushbytes 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "tmp%26#0"
+      ],
+      "stack_out": [
+        "tmp%26#0",
+        "0x151f7c75"
+      ]
+    },
+    "136": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "tmp%26#0"
+      ]
+    },
+    "137": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%27#0"
+      ]
+    },
+    "138": {
+      "op": "log",
+      "stack_out": []
+    },
+    "139": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "140": {
+      "op": "return",
+      "stack_out": []
+    },
+    "141": {
+      "block": "main_optinToApplication_route@4",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "143": {
+      "op": "intc_0 // OptIn",
+      "defined_out": [
+        "OptIn",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0",
+        "OptIn"
+      ]
+    },
+    "144": {
+      "op": "==",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "145": {
+      "error": "OnCompletion is not OptIn",
+      "op": "assert // OnCompletion is not OptIn",
+      "stack_out": []
+    },
+    "146": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "148": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "149": {
+      "callsub": "smart_contracts/realm/contract.algo.ts::Realm.optinToApplication",
+      "op": "callsub optinToApplication"
+    },
+    "152": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "153": {
+      "op": "return",
+      "stack_out": []
+    },
+    "154": {
+      "block": "main_createApplication_route@3",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "156": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "157": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "158": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "160": {
+      "op": "!",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "161": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "162": {
+      "callsub": "smart_contracts/realm/contract.algo.ts::Realm.createApplication",
+      "op": "callsub createApplication"
+    },
+    "165": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "166": {
+      "op": "return",
+      "stack_out": []
+    },
+    "167": {
+      "subroutine": "smart_contracts/realm/contract.algo.ts::Realm.createApplication",
+      "params": {},
+      "block": "createApplication",
+      "stack_in": [],
+      "op": "pushbytes \"MANAGER_ADDRESS\"",
+      "defined_out": [
+        "\"MANAGER_ADDRESS\""
+      ],
+      "stack_out": [
+        "\"MANAGER_ADDRESS\""
+      ]
+    },
+    "184": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"MANAGER_ADDRESS\"",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "\"MANAGER_ADDRESS\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "186": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "187": {
+      "op": "bytec_0 // \"total_kingdoms\"",
+      "defined_out": [
+        "\"total_kingdoms\""
+      ],
+      "stack_out": [
+        "\"total_kingdoms\""
+      ]
+    },
+    "188": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "\"total_kingdoms\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"total_kingdoms\"",
+        "0"
+      ]
+    },
+    "189": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "190": {
+      "op": "pushbytes \"project_creation_fee\"",
+      "defined_out": [
+        "\"project_creation_fee\""
+      ],
+      "stack_out": [
+        "\"project_creation_fee\""
+      ]
+    },
+    "212": {
+      "op": "pushint 1000000 // 1000000",
+      "defined_out": [
+        "\"project_creation_fee\"",
+        "1000000"
+      ],
+      "stack_out": [
+        "\"project_creation_fee\"",
+        "1000000"
+      ]
+    },
+    "216": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "217": {
+      "op": "pushbytes \"funding_goal_1\"",
+      "defined_out": [
+        "\"funding_goal_1\""
+      ],
+      "stack_out": [
+        "\"funding_goal_1\""
+      ]
+    },
+    "233": {
+      "op": "pushint 100000000 // 100000000",
+      "defined_out": [
+        "\"funding_goal_1\"",
+        "100000000"
+      ],
+      "stack_out": [
+        "\"funding_goal_1\"",
+        "100000000"
+      ]
+    },
+    "238": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "239": {
+      "op": "pushbytes \"min_purchase_amount\"",
+      "defined_out": [
+        "\"min_purchase_amount\""
+      ],
+      "stack_out": [
+        "\"min_purchase_amount\""
+      ]
+    },
+    "260": {
+      "op": "pushint 10000000 // 10000000",
+      "defined_out": [
+        "\"min_purchase_amount\"",
+        "10000000"
+      ],
+      "stack_out": [
+        "\"min_purchase_amount\"",
+        "10000000"
+      ]
+    },
+    "265": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "266": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "267": {
+      "subroutine": "smart_contracts/realm/contract.algo.ts::Realm.optinToApplication",
+      "params": {},
+      "block": "optinToApplication",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "269": {
+      "op": "bytec_1 // \"project_contribution\"",
+      "defined_out": [
+        "\"project_contribution\"",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "\"project_contribution\""
+      ]
+    },
+    "270": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "\"project_contribution\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "\"project_contribution\"",
+        "0"
+      ]
+    },
+    "271": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "272": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "273": {
+      "subroutine": "smart_contracts/realm/contract.algo.ts::Realm.createKingdom",
+      "params": {
+        "projectName#0": "bytes",
+        "projectDescription#0": "bytes",
+        "tokenName#0": "bytes",
+        "tokenSymbol#0": "bytes",
+        "kingdomImage#0": "bytes",
+        "kingdomPrmaryColor#0": "bytes",
+        "kingdomSecondaryColor#0": "bytes",
+        "kingdomBackgroundColor#0": "bytes",
+        "kingdomAccentColor#0": "bytes",
+        "kingdomTextColor#0": "bytes",
+        "feeTransaction#0": "uint64"
+      },
+      "block": "createKingdom",
+      "stack_in": [],
+      "op": "proto 11 1"
+    },
+    "276": {
+      "op": "itxn_begin"
+    },
+    "277": {
+      "op": "intc_0 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "278": {
+      "op": "itxn_field LocalNumUint",
+      "stack_out": []
+    },
+    "280": {
+      "op": "pushint 7 // 7",
+      "defined_out": [
+        "7"
+      ],
+      "stack_out": [
+        "7"
+      ]
+    },
+    "282": {
+      "op": "itxn_field GlobalNumUint",
+      "stack_out": []
+    },
+    "284": {
+      "op": "intc_2 // 10",
+      "defined_out": [
+        "10"
+      ],
+      "stack_out": [
+        "10"
+      ]
+    },
+    "285": {
+      "op": "itxn_field GlobalNumByteSlice",
+      "stack_out": []
+    },
+    "287": {
+      "op": "pushbytes base64(CoEBQw==)",
+      "defined_out": [
+        "CoEBQw=="
+      ],
+      "stack_out": [
+        "CoEBQw=="
+      ]
+    },
+    "293": {
+      "op": "itxn_field ClearStateProgramPages",
+      "stack_out": []
+    },
+    "295": {
+      "op": "pushbytes base64(CiADAAEGJgkQTUFYX1RPS0VOX1NVUFBMWQx0b3RhbF9mdW5kZWQNcHJvamVjdF90b2tlbg9UUkVBU1VSWV9BUFBfSUQMUkVBTE1fQVBQX0lEDklOSVRJQUxfU1VQUExZDHByb2plY3RfbmFtZRRUUkVBU1VSWV9BUFBfQUREUkVTUwJfZjEbQQCBggQESSGDJwS5ij3cBHpj8asE9YktVjYaAI4EADAAJAAOAAIiQzEZFEQxGESIA2QjQzEZFEQxGEQxFiMJSTgQIxJEiALZI0MxGRREMRhEiAKDI0MxGRREMRhENhoBNhoCNhoDNhoENhoFNhoGNhoHNhoINhoJNhoKNhoLF4gADSNDMRlA/50xGBREI0OKCwAogYCglKWNHWcnBYGAgN2dpBdnKyJnJwaL9WeAEXByb2plY3RfaW1hZ2VfdXJsi/lngA9wcm9qZWN0X2NyZWF0b3IxAGcnBIv/Z4ATcHJvamVjdF9kZXNjcmlwdGlvbov2Z4AVcHJvamVjdF9wcmltYXJ5X2NvbG9yi/pngBdwcm9qZWN0X3NlY29uZGFyeV9jb2xvcov7Z4AYcHJvamVjdF9iYWNrZ3JvdW5kX2NvbG9yi/xngBRwcm9qZWN0X2FjY2VudF9jb2xvcov9Z4AScHJvamVjdF90ZXh0X2NvbG9yi/5nKSJnsSInBmVEVwIAIihlRIv4VwIAsiWyIiSyI7ImgQOyECKyAbO0PCpLAWcqTGexI7I2gQeyNIEKsjWABAqBAUOyQoDnAQogAgABJgIOdG90YWxfdHJlYXN1cnkRVFJFQVNVUllfQVNTRVRfSUQxG0EAQYICBCFJ/xQEr5Q0dzYaAI4CABgAAiJDMRkURDEYRDEWIwlJOBAjEkSIAH0jQzEZFEQxGEQ2GgEXNhoCF4gADSNDMRlA/88xGBREI0OKAgApi/9nKCJngA90b3RhbF93aXRoZHJhd24iZ7EiKWVEMgoishKyFLIRgQSyECKyAbOADERFVl9UUkVBU1VSWYFQZ4ASQ09NTVVOSVRZX1RSRUFTVVJZgRRniYoBAIv/OAhJRCIoZUQIKExnibJAJLIQIrIBs7Q9SXIIRCcHTGcrSwFnsTIKTHIIRIHQ6AyyCLIHsgAjshAisgGziAABibEyCBYiKmVEFiIrZUQyCrIAshiABCFJ/xSyGkyyGrIaJLIQIrIBs7EiKmVEIicHZUQiKGVEIicFZUQJshKyFLIRgQSyECKyAbOJigEAIicEZUSADmZ1bmRpbmdfZ29hbF8xZUgiKWVEi/84CExLAQhPAg5EIicEZUSAE21pbl9wdXJjaGFzZV9hbW91bnRlSEsBDkQiKGVESwEPRCIpZURLAQgpTGeL/zgAJwhMUEmBCLlISb5MF0xETwIIFr+JJwgxAFC9RQFEiQ==)",
+      "defined_out": [
+        "CiADAAEGJgkQTUFYX1RPS0VOX1NVUFBMWQx0b3RhbF9mdW5kZWQNcHJvamVjdF90b2tlbg9UUkVBU1VSWV9BUFBfSUQMUkVBTE1fQVBQX0lEDklOSVRJQUxfU1VQUExZDHByb2plY3RfbmFtZRRUUkVBU1VSWV9BUFBfQUREUkVTUwJfZjEbQQCBggQESSGDJwS5ij3cBHpj8asE9YktVjYaAI4EADAAJAAOAAIiQzEZFEQxGESIA2QjQzEZFEQxGEQxFiMJSTgQIxJEiALZI0MxGRREMRhEiAKDI0MxGRREMRhENhoBNhoCNhoDNhoENhoFNhoGNhoHNhoINhoJNhoKNhoLF4gADSNDMRlA/50xGBREI0OKCwAogYCglKWNHWcnBYGAgN2dpBdnKyJnJwaL9WeAEXByb2plY3RfaW1hZ2VfdXJsi/lngA9wcm9qZWN0X2NyZWF0b3IxAGcnBIv/Z4ATcHJvamVjdF9kZXNjcmlwdGlvbov2Z4AVcHJvamVjdF9wcmltYXJ5X2NvbG9yi/pngBdwcm9qZWN0X3NlY29uZGFyeV9jb2xvcov7Z4AYcHJvamVjdF9iYWNrZ3JvdW5kX2NvbG9yi/xngBRwcm9qZWN0X2FjY2VudF9jb2xvcov9Z4AScHJvamVjdF90ZXh0X2NvbG9yi/5nKSJnsSInBmVEVwIAIihlRIv4VwIAsiWyIiSyI7ImgQOyECKyAbO0PCpLAWcqTGexI7I2gQeyNIEKsjWABAqBAUOyQoDnAQogAgABJgIOdG90YWxfdHJlYXN1cnkRVFJFQVNVUllfQVNTRVRfSUQxG0EAQYICBCFJ/xQEr5Q0dzYaAI4CABgAAiJDMRkURDEYRDEWIwlJOBAjEkSIAH0jQzEZFEQxGEQ2GgEXNhoCF4gADSNDMRlA/88xGBREI0OKAgApi/9nKCJngA90b3RhbF93aXRoZHJhd24iZ7EiKWVEMgoishKyFLIRgQSyECKyAbOADERFVl9UUkVBU1VSWYFQZ4ASQ09NTVVOSVRZX1RSRUFTVVJZgRRniYoBAIv/OAhJRCIoZUQIKExnibJAJLIQIrIBs7Q9SXIIRCcHTGcrSwFnsTIKTHIIRIHQ6AyyCLIHsgAjshAisgGziAABibEyCBYiKmVEFiIrZUQyCrIAshiABCFJ/xSyGkyyGrIaJLIQIrIBs7EiKmVEIicHZUQiKGVEIicFZUQJshKyFLIRgQSyECKyAbOJigEAIicEZUSADmZ1bmRpbmdfZ29hbF8xZUgiKWVEi/84CExLAQhPAg5EIicEZUSAE21pbl9wdXJjaGFzZV9hbW91bnRlSEsBDkQiKGVESwEPRCIpZURLAQgpTGeL/zgAJwhMUEmBCLlISb5MF0xETwIIFr+JJwgxAFC9RQFEiQ=="
+      ],
+      "stack_out": [
+        "CiADAAEGJgkQTUFYX1RPS0VOX1NVUFBMWQx0b3RhbF9mdW5kZWQNcHJvamVjdF90b2tlbg9UUkVBU1VSWV9BUFBfSUQMUkVBTE1fQVBQX0lEDklOSVRJQUxfU1VQUExZDHByb2plY3RfbmFtZRRUUkVBU1VSWV9BUFBfQUREUkVTUwJfZjEbQQCBggQESSGDJwS5ij3cBHpj8asE9YktVjYaAI4EADAAJAAOAAIiQzEZFEQxGESIA2QjQzEZFEQxGEQxFiMJSTgQIxJEiALZI0MxGRREMRhEiAKDI0MxGRREMRhENhoBNhoCNhoDNhoENhoFNhoGNhoHNhoINhoJNhoKNhoLF4gADSNDMRlA/50xGBREI0OKCwAogYCglKWNHWcnBYGAgN2dpBdnKyJnJwaL9WeAEXByb2plY3RfaW1hZ2VfdXJsi/lngA9wcm9qZWN0X2NyZWF0b3IxAGcnBIv/Z4ATcHJvamVjdF9kZXNjcmlwdGlvbov2Z4AVcHJvamVjdF9wcmltYXJ5X2NvbG9yi/pngBdwcm9qZWN0X3NlY29uZGFyeV9jb2xvcov7Z4AYcHJvamVjdF9iYWNrZ3JvdW5kX2NvbG9yi/xngBRwcm9qZWN0X2FjY2VudF9jb2xvcov9Z4AScHJvamVjdF90ZXh0X2NvbG9yi/5nKSJnsSInBmVEVwIAIihlRIv4VwIAsiWyIiSyI7ImgQOyECKyAbO0PCpLAWcqTGexI7I2gQeyNIEKsjWABAqBAUOyQoDnAQogAgABJgIOdG90YWxfdHJlYXN1cnkRVFJFQVNVUllfQVNTRVRfSUQxG0EAQYICBCFJ/xQEr5Q0dzYaAI4CABgAAiJDMRkURDEYRDEWIwlJOBAjEkSIAH0jQzEZFEQxGEQ2GgEXNhoCF4gADSNDMRlA/88xGBREI0OKAgApi/9nKCJngA90b3RhbF93aXRoZHJhd24iZ7EiKWVEMgoishKyFLIRgQSyECKyAbOADERFVl9UUkVBU1VSWYFQZ4ASQ09NTVVOSVRZX1RSRUFTVVJZgRRniYoBAIv/OAhJRCIoZUQIKExnibJAJLIQIrIBs7Q9SXIIRCcHTGcrSwFnsTIKTHIIRIHQ6AyyCLIHsgAjshAisgGziAABibEyCBYiKmVEFiIrZUQyCrIAshiABCFJ/xSyGkyyGrIaJLIQIrIBs7EiKmVEIicHZUQiKGVEIicFZUQJshKyFLIRgQSyECKyAbOJigEAIicEZUSADmZ1bmRpbmdfZ29hbF8xZUgiKWVEi/84CExLAQhPAg5EIicEZUSAE21pbl9wdXJjaGFzZV9hbW91bnRlSEsBDkQiKGVESwEPRCIpZURLAQgpTGeL/zgAJwhMUEmBCLlISb5MF0xETwIIFr+JJwgxAFC9RQFEiQ=="
+      ]
+    },
+    "1361": {
+      "op": "itxn_field ApprovalProgramPages",
+      "stack_out": []
+    },
+    "1363": {
+      "op": "intc_3 // 6",
+      "defined_out": [
+        "6"
+      ],
+      "stack_out": [
+        "6"
+      ]
+    },
+    "1364": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": []
+    },
+    "1366": {
+      "op": "intc_1 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "1367": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "1369": {
+      "op": "itxn_submit"
+    },
+    "1370": {
+      "op": "itxn CreatedApplicationID",
+      "defined_out": [
+        "appTxn.CreatedApplicationID#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0"
+      ]
+    },
+    "1372": {
+      "op": "dup",
+      "defined_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appTxn.CreatedApplicationID#0 (copy)"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appTxn.CreatedApplicationID#0 (copy)"
+      ]
+    },
+    "1373": {
+      "op": "app_params_get AppAddress",
+      "defined_out": [
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0",
+        "check%0#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "check%0#0"
+      ]
+    },
+    "1375": {
+      "error": "application exists",
+      "op": "assert // application exists",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0"
+      ]
+    },
+    "1376": {
+      "op": "dig 1",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0 (copy)"
+      ]
+    },
+    "1378": {
+      "op": "itob",
+      "defined_out": [
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "kingdomId#0"
+      ]
+    },
+    "1379": {
+      "op": "pushbytes \"_k\"",
+      "defined_out": [
+        "\"_k\"",
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "kingdomId#0",
+        "\"_k\""
+      ]
+    },
+    "1383": {
+      "op": "dig 1",
+      "defined_out": [
+        "\"_k\"",
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "kingdomId#0 (copy)"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "kingdomId#0",
+        "\"_k\"",
+        "kingdomId#0 (copy)"
+      ]
+    },
+    "1385": {
+      "op": "concat",
+      "defined_out": [
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "kingdomId#0",
+        "tmp%0#0"
+      ]
+    },
+    "1386": {
+      "op": "pushbytes 0x000000000000000a",
+      "defined_out": [
+        "0x000000000000000a",
+        "appAddress#0",
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "kingdomId#0",
+        "tmp%0#0",
+        "0x000000000000000a"
+      ]
+    },
+    "1396": {
+      "op": "box_put",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "appAddress#0",
+        "kingdomId#0"
+      ]
+    },
+    "1397": {
+      "op": "itxn_begin"
+    },
+    "1398": {
+      "op": "swap",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "appAddress#0"
+      ]
+    },
+    "1399": {
+      "op": "itxn_field Receiver",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ]
+    },
+    "1401": {
+      "op": "pushint 1400000 // 1400000",
+      "defined_out": [
+        "1400000",
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "1400000"
+      ]
+    },
+    "1405": {
+      "op": "itxn_field Amount",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ]
+    },
+    "1407": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "1"
+      ]
+    },
+    "1408": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ]
+    },
+    "1410": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "0"
+      ]
+    },
+    "1411": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0"
+      ]
+    },
+    "1413": {
+      "op": "itxn_submit"
+    },
+    "1414": {
+      "op": "itxn_begin"
+    },
+    "1415": {
+      "op": "global CurrentApplicationID",
+      "defined_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%0#1"
+      ]
+    },
+    "1417": {
+      "op": "itob",
+      "defined_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1418": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "appTxn.CreatedApplicationID#0",
+        "inner_txn_params%1%%param_Sender_idx_0#0",
+        "kingdomId#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%1#1",
+        "inner_txn_params%1%%param_Sender_idx_0#0"
+      ]
+    },
+    "1420": {
+      "op": "itxn_field Sender",
+      "stack_out": [
+        "appTxn.CreatedApplicationID#0",
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1422": {
+      "op": "uncover 2",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "appTxn.CreatedApplicationID#0"
+      ]
+    },
+    "1424": {
+      "op": "itxn_field ApplicationID",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1426": {
+      "op": "pushbytes 0x49218327 // method \"createKingdom(string,string,string,string,string,string,string,string,string,string,uint64)void\"",
+      "defined_out": [
+        "Method(createKingdom(string,string,string,string,string,string,string,string,string,string,uint64)void)",
+        "kingdomId#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "Method(createKingdom(string,string,string,string,string,string,string,string,string,string,uint64)void)"
+      ]
+    },
+    "1432": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1434": {
+      "op": "frame_dig -11",
+      "defined_out": [
+        "kingdomId#0",
+        "projectName#0 (copy)",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "projectName#0 (copy)"
+      ]
+    },
+    "1436": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1438": {
+      "op": "frame_dig -10",
+      "defined_out": [
+        "kingdomId#0",
+        "projectDescription#0 (copy)",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "projectDescription#0 (copy)"
+      ]
+    },
+    "1440": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1442": {
+      "op": "frame_dig -9",
+      "defined_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "tokenName#0 (copy)"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "tokenName#0 (copy)"
+      ]
+    },
+    "1444": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1446": {
+      "op": "frame_dig -8",
+      "defined_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "tokenSymbol#0 (copy)"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "tokenSymbol#0 (copy)"
+      ]
+    },
+    "1448": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1450": {
+      "op": "frame_dig -7",
+      "defined_out": [
+        "kingdomId#0",
+        "kingdomImage#0 (copy)",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "kingdomImage#0 (copy)"
+      ]
+    },
+    "1452": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1454": {
+      "op": "frame_dig -6",
+      "defined_out": [
+        "kingdomId#0",
+        "kingdomPrmaryColor#0 (copy)",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "kingdomPrmaryColor#0 (copy)"
+      ]
+    },
+    "1456": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1458": {
+      "op": "frame_dig -5",
+      "defined_out": [
+        "kingdomId#0",
+        "kingdomSecondaryColor#0 (copy)",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "kingdomSecondaryColor#0 (copy)"
+      ]
+    },
+    "1460": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1462": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "kingdomBackgroundColor#0 (copy)",
+        "kingdomId#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "kingdomBackgroundColor#0 (copy)"
+      ]
+    },
+    "1464": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1466": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "kingdomAccentColor#0 (copy)",
+        "kingdomId#0",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "kingdomAccentColor#0 (copy)"
+      ]
+    },
+    "1468": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1470": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "kingdomId#0",
+        "kingdomTextColor#0 (copy)",
+        "tmp%1#1"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1",
+        "kingdomTextColor#0 (copy)"
+      ]
+    },
+    "1472": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#1"
+      ]
+    },
+    "1474": {
+      "op": "itxn_field ApplicationArgs",
+      "stack_out": [
+        "kingdomId#0"
+      ]
+    },
+    "1476": {
+      "op": "intc_3 // 6",
+      "stack_out": [
+        "kingdomId#0",
+        "6"
+      ]
+    },
+    "1477": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "kingdomId#0"
+      ]
+    },
+    "1479": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "kingdomId#0",
+        "0"
+      ]
+    },
+    "1480": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "kingdomId#0"
+      ]
+    },
+    "1482": {
+      "op": "itxn_submit"
+    },
+    "1483": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "kingdomId#0",
+        "0"
+      ]
+    },
+    "1484": {
+      "op": "bytec_0 // \"total_kingdoms\"",
+      "defined_out": [
+        "\"total_kingdoms\"",
+        "0",
+        "kingdomId#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "0",
+        "\"total_kingdoms\""
+      ]
+    },
+    "1485": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "kingdomId#0",
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "1486": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "kingdomId#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "1487": {
+      "op": "intc_0 // 1",
+      "stack_out": [
+        "kingdomId#0",
+        "maybe_value%0#0",
+        "1"
+      ]
+    },
+    "1488": {
+      "op": "+",
+      "defined_out": [
+        "kingdomId#0",
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "new_state_value%0#0"
+      ]
+    },
+    "1489": {
+      "op": "bytec_0 // \"total_kingdoms\"",
+      "stack_out": [
+        "kingdomId#0",
+        "new_state_value%0#0",
+        "\"total_kingdoms\""
+      ]
+    },
+    "1490": {
+      "op": "swap",
+      "stack_out": [
+        "kingdomId#0",
+        "\"total_kingdoms\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "1491": {
+      "op": "app_global_put",
+      "stack_out": [
+        "kingdomId#0"
+      ]
+    },
+    "1492": {
+      "op": "txn Sender",
+      "defined_out": [
+        "kingdomId#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#0"
+      ]
+    },
+    "1494": {
+      "op": "intc_1 // 0",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#0",
+        "0"
+      ]
+    },
+    "1495": {
+      "op": "bytec_1 // \"project_contribution\"",
+      "defined_out": [
+        "\"project_contribution\"",
+        "0",
+        "kingdomId#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%1#0",
+        "0",
+        "\"project_contribution\""
+      ]
+    },
+    "1496": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "kingdomId#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "1497": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "kingdomId#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "1498": {
+      "op": "txn Sender",
+      "defined_out": [
+        "kingdomId#0",
+        "maybe_value%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "maybe_value%1#0",
+        "tmp%2#0"
+      ]
+    },
+    "1500": {
+      "op": "swap",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%2#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "1501": {
+      "op": "intc_2 // 10",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%2#0",
+        "maybe_value%1#0",
+        "10"
+      ]
+    },
+    "1502": {
+      "op": "+",
+      "defined_out": [
+        "kingdomId#0",
+        "new_state_value%1#0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%2#0",
+        "new_state_value%1#0"
+      ]
+    },
+    "1503": {
+      "op": "bytec_1 // \"project_contribution\""
+    },
+    "1504": {
+      "op": "swap",
+      "stack_out": [
+        "kingdomId#0",
+        "tmp%2#0",
+        "\"project_contribution\"",
+        "new_state_value%1#0"
+      ]
+    },
+    "1505": {
+      "op": "app_local_put",
+      "stack_out": [
+        "kingdomId#0"
+      ]
+    },
+    "1506": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
