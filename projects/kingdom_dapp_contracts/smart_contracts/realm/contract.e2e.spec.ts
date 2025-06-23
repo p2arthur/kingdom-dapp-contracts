@@ -1,6 +1,6 @@
 import { AlgorandClient, algos, microAlgos } from '@algorandfoundation/algokit-utils'
 import { algorandFixture } from '@algorandfoundation/algokit-utils/testing'
-import { beforeAll, beforeEach, describe, test } from 'vitest'
+import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
 import { RealmClient, RealmFactory } from '../artifacts/realm/RealmClient'
 
 const fixture = algorandFixture()
@@ -33,14 +33,12 @@ describe('Realm contract', () => {
     })
   }, 60000)
 
-  test('should create a new kingdom into the realm', async () => {
+  test('should create a new kingdom into the realm and add 10 to the project contribution box', async () => {
     const transaction = await algorandClient.createTransaction.payment({
       sender: realmManagerAccount.addr,
       receiver: realmClient.appAddress,
       amount: algos(20),
     })
-
-    await realmClient.send.optIn.optinToApplication()
 
     const result = await realmClient.send.createKingdom({
       args: {
@@ -60,8 +58,13 @@ describe('Realm contract', () => {
       extraFee: microAlgos(100000),
     })
 
-    // const kingdoms = await realmClient.send.getKingdoms({ args: [] })
+    const { appId } = result.return!
+    console.log('Created Kingdom App ID:', appId)
 
-    // console.log('Kingdoms:', kingdoms)
+    const kingdom = await realmClient.send.getKingdomBoxById({ args: { appId: appId! } })
+
+    console.log('kingdom', kingdom.return?.kingdomContribution)
+
+    expect(kingdom.return?.kingdomContribution).toBe(10n)
   })
 })

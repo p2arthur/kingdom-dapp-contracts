@@ -1,7 +1,7 @@
 {
   "version": 3,
   "sources": [
-    "/home/arthur/Documents/bolt_hackathon/kingdom_dapp_contracts/projects/kingdom_dapp_contracts/smart_contracts/kingdom_treasury/contract.algo.ts"
+    "/home/arthur/Documents/bolt_hackathon/kingdom_dapp_contracts/projects/kingdom_dapp_contracts/smart_contracts/microdapps/kingdom_treasury/contract.algo.ts"
   ],
   "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAEA;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;;AAAA;;;;;;AAAA;;AAyBE;;AAAA;AAAA;AAAA;;AAAA;AAzBF;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;AAyBE;;;AAAA;;AAhBA;;AAAA;AAAA;AAAA;;AAAA;AATF;;;AAAA;AAAA;;;AAAA;AASE;;;AAAA;;AATF;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AASE;;;AALA;AAME;;AAAA;AAJF;AAK8B;AAA5B;AAJF;;;;;;;;;;;;;;;;;AAK+B;AAA7B;AAEA;AAVF;AAAA;AAAA;AAAA;AAa4B;;AACT;;;;;;;AAJjB;;;;AAAA;;;AAAA;AAZF;;;;;;;;;;;;;;AAmB4B;;AAA1B;AAlBF;;;;;;;;;;;;;;;;;;;;AAmBkC;;AAAhC;;AAGF;;;AACQ;;AAAoB;;AAC1B;AAAA;AArBF;AAAA;AAAA;AAAA;AAsBE;AAtBF;AAsBE;AAAA;",
   "op_pc_offset": 0,
@@ -194,7 +194,7 @@
       ]
     },
     "85": {
-      "callsub": "smart_contracts/kingdom_treasury/contract.algo.ts::KingdomTreasury.depositToTreasury",
+      "callsub": "smart_contracts/microdapps/kingdom_treasury/contract.algo.ts::KingdomTreasury.depositToTreasury",
       "op": "callsub depositToTreasury",
       "stack_out": []
     },
@@ -291,7 +291,7 @@
       ]
     },
     "105": {
-      "callsub": "smart_contracts/kingdom_treasury/contract.algo.ts::KingdomTreasury.setupKingdomTreasury",
+      "callsub": "smart_contracts/microdapps/kingdom_treasury/contract.algo.ts::KingdomTreasury.setupKingdomTreasury",
       "op": "callsub setupKingdomTreasury",
       "stack_out": []
     },
@@ -360,7 +360,7 @@
       "stack_out": []
     },
     "121": {
-      "subroutine": "smart_contracts/kingdom_treasury/contract.algo.ts::KingdomTreasury.setupKingdomTreasury",
+      "subroutine": "smart_contracts/microdapps/kingdom_treasury/contract.algo.ts::KingdomTreasury.setupKingdomTreasury",
       "params": {
         "projectAppId#0": "uint64",
         "reserveTokenId#0": "uint64"
@@ -586,7 +586,7 @@
       "op": "retsub"
     },
     "213": {
-      "subroutine": "smart_contracts/kingdom_treasury/contract.algo.ts::KingdomTreasury.depositToTreasury",
+      "subroutine": "smart_contracts/microdapps/kingdom_treasury/contract.algo.ts::KingdomTreasury.depositToTreasury",
       "params": {
         "depositTxn#0": "uint64"
       },

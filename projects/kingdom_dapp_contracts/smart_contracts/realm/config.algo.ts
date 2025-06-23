@@ -6,4 +6,6 @@ export class KingdomIdType extends arc4.Struct<{
 
 export class KingdomDataType extends arc4.Struct<{
   kingdomContribution: arc4.UintN64
+  kingdomManager: arc4.Address
+  kingdomAddress: arc4.Address
 }> {}

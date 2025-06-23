@@ -3,24 +3,66 @@
 
 // @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
 main:
-    intcblock 1 0 10 6
-    bytecblock "total_kingdoms" "project_contribution"
-    // smart_contracts/realm/contract.algo.ts:20
+    intcblock 0 1 10 6
+    bytecblock "total_kingdoms" "_k" 0x151f7c75 "CONTRIBUTION_SETTLE" "CONTRIBUTION_DEPLOY" "CONTRIBUTION_ENGAGE"
+    // smart_contracts/realm/contract.algo.ts:18
     // export class Realm extends Contract {
     txn NumAppArgs
-    bz main_after_if_else@9
-    pushbytess 0xb8447b36 0xf6e4e748 0x8a750b93 // method "createApplication()void", method "optinToApplication()void", method "createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64)"
+    bz main_after_if_else@10
+    pushbytess 0xb8447b36 0x8a750b93 0xfd237e4e 0x48dddb50 // method "createApplication()void", method "createKingdom(string,string,string,string,string,string,string,string,string,string,pay)(uint64)", method "addContribution(uint64,uint64)void", method "getKingdomBoxById(uint64)(uint64,address,address)"
     txna ApplicationArgs 0
-    match main_createApplication_route@3 main_optinToApplication_route@4 main_createKingdom_route@5
+    match main_createApplication_route@3 main_createKingdom_route@4 main_addContribution_route@5 main_getKingdomBoxById_route@6
 
-main_after_if_else@9:
-    // smart_contracts/realm/contract.algo.ts:20
+main_after_if_else@10:
+    // smart_contracts/realm/contract.algo.ts:18
     // export class Realm extends Contract {
-    intc_1 // 0
+    intc_0 // 0
     return
 
-main_createKingdom_route@5:
-    // smart_contracts/realm/contract.algo.ts:48-60
+main_getKingdomBoxById_route@6:
+    // smart_contracts/realm/contract.algo.ts:206
+    // public getKingdomBoxById(appId: uint64): KingdomDataType {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/realm/contract.algo.ts:18
+    // export class Realm extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    // smart_contracts/realm/contract.algo.ts:206
+    // public getKingdomBoxById(appId: uint64): KingdomDataType {
+    callsub getKingdomBoxById
+    bytec_2 // 0x151f7c75
+    swap
+    concat
+    log
+    intc_1 // 1
+    return
+
+main_addContribution_route@5:
+    // smart_contracts/realm/contract.algo.ts:157
+    // public addContribution(appId: uint64, contributionType: uint64): void {
+    txn OnCompletion
+    !
+    assert // OnCompletion is not NoOp
+    txn ApplicationID
+    assert // can only call when not creating
+    // smart_contracts/realm/contract.algo.ts:18
+    // export class Realm extends Contract {
+    txna ApplicationArgs 1
+    btoi
+    txna ApplicationArgs 2
+    btoi
+    // smart_contracts/realm/contract.algo.ts:157
+    // public addContribution(appId: uint64, contributionType: uint64): void {
+    callsub addContribution
+    intc_1 // 1
+    return
+
+main_createKingdom_route@4:
+    // smart_contracts/realm/contract.algo.ts:46-58
     // public createKingdom(
     //   projectName: arc4.Str,
     //   projectDescription: arc4.Str,
@@ -39,7 +81,7 @@ main_createKingdom_route@5:
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/realm/contract.algo.ts:20
+    // smart_contracts/realm/contract.algo.ts:18
     // export class Realm extends Contract {
     txna ApplicationArgs 1
     txna ApplicationArgs 2
@@ -52,14 +94,14 @@ main_createKingdom_route@5:
     txna ApplicationArgs 9
     txna ApplicationArgs 10
     txn GroupIndex
-    intc_0 // 1
+    intc_1 // 1
     -
     dup
     gtxns TypeEnum
-    intc_0 // pay
+    intc_1 // pay
     ==
     assert // transaction type is pay
-    // smart_contracts/realm/contract.algo.ts:48-60
+    // smart_contracts/realm/contract.algo.ts:46-58
     // public createKingdom(
     //   projectName: arc4.Str,
     //   projectDescription: arc4.Str,
@@ -74,28 +116,15 @@ main_createKingdom_route@5:
     //   feeTransaction: gtxn.PaymentTxn,
     // ): KingdomIdType {
     callsub createKingdom
-    pushbytes 0x151f7c75
+    bytec_2 // 0x151f7c75
     swap
     concat
     log
-    intc_0 // 1
-    return
-
-main_optinToApplication_route@4:
-    // smart_contracts/realm/contract.algo.ts:37
-    // @abimethod({ allowActions: 'OptIn' })
-    txn OnCompletion
-    intc_0 // OptIn
-    ==
-    assert // OnCompletion is not OptIn
-    txn ApplicationID
-    assert // can only call when not creating
-    callsub optinToApplication
-    intc_0 // 1
+    intc_1 // 1
     return
 
 main_createApplication_route@3:
-    // smart_contracts/realm/contract.algo.ts:29
+    // smart_contracts/realm/contract.algo.ts:30
     // public createApplication() {
     txn OnCompletion
     !
@@ -104,68 +133,74 @@ main_createApplication_route@3:
     !
     assert // can only call when creating
     callsub createApplication
-    intc_0 // 1
+    intc_1 // 1
     return
 
 
 // smart_contracts/realm/contract.algo.ts::Realm.createApplication() -> void:
 createApplication:
-    // smart_contracts/realm/contract.algo.ts:21
+    // smart_contracts/realm/contract.algo.ts:19
     // MANAGER_ADDRESS = GlobalState<arc4.Address>()
     pushbytes "MANAGER_ADDRESS"
-    // smart_contracts/realm/contract.algo.ts:30
+    // smart_contracts/realm/contract.algo.ts:31
     // this.MANAGER_ADDRESS.value = new arc4.Address(Txn.sender)
     txn Sender
     app_global_put
-    // smart_contracts/realm/contract.algo.ts:22
+    // smart_contracts/realm/contract.algo.ts:23
     // total_kingdoms = GlobalState<uint64>()
     bytec_0 // "total_kingdoms"
-    // smart_contracts/realm/contract.algo.ts:31
+    // smart_contracts/realm/contract.algo.ts:32
     // this.total_kingdoms.value = 0
-    intc_1 // 0
+    intc_0 // 0
     app_global_put
-    // smart_contracts/realm/contract.algo.ts:23
+    // smart_contracts/realm/contract.algo.ts:24
     // project_creation_fee = GlobalState<uint64>()
     pushbytes "project_creation_fee"
-    // smart_contracts/realm/contract.algo.ts:32
+    // smart_contracts/realm/contract.algo.ts:33
     // this.project_creation_fee.value = 1000000
     pushint 1000000 // 1000000
     app_global_put
-    // smart_contracts/realm/contract.algo.ts:24
+    // smart_contracts/realm/contract.algo.ts:25
     // funding_goal_1 = GlobalState<uint64>()
     pushbytes "funding_goal_1"
-    // smart_contracts/realm/contract.algo.ts:33
+    // smart_contracts/realm/contract.algo.ts:34
     // this.funding_goal_1.value = 100000000
     pushint 100000000 // 100000000
     app_global_put
-    // smart_contracts/realm/contract.algo.ts:25
+    // smart_contracts/realm/contract.algo.ts:26
     // min_purchase_amount = GlobalState<uint64>()
     pushbytes "min_purchase_amount"
-    // smart_contracts/realm/contract.algo.ts:34
+    // smart_contracts/realm/contract.algo.ts:35
     // this.min_purchase_amount.value = 10000000
     pushint 10000000 // 10000000
     app_global_put
-    retsub
-
-
-// smart_contracts/realm/contract.algo.ts::Realm.optinToApplication() -> void:
-optinToApplication:
-    // smart_contracts/realm/contract.algo.ts:40
-    // this.project_contribution(Txn.sender).value = 0
-    txn Sender
-    // smart_contracts/realm/contract.algo.ts:26
-    // project_contribution = LocalState<uint64>()
-    bytec_1 // "project_contribution"
-    // smart_contracts/realm/contract.algo.ts:40
-    // this.project_contribution(Txn.sender).value = 0
-    intc_1 // 0
-    app_local_put
+    // smart_contracts/realm/contract.algo.ts:20
+    // CONTRIBUTION_SETTLE = GlobalState<uint64>()
+    bytec_3 // "CONTRIBUTION_SETTLE"
+    // smart_contracts/realm/contract.algo.ts:36
+    // this.CONTRIBUTION_SETTLE.value = 10
+    intc_2 // 10
+    app_global_put
+    // smart_contracts/realm/contract.algo.ts:21
+    // CONTRIBUTION_DEPLOY = GlobalState<uint64>()
+    bytec 4 // "CONTRIBUTION_DEPLOY"
+    // smart_contracts/realm/contract.algo.ts:37
+    // this.CONTRIBUTION_DEPLOY.value = 5
+    pushint 5 // 5
+    app_global_put
+    // smart_contracts/realm/contract.algo.ts:22
+    // CONTRIBUTION_ENGAGE = GlobalState<uint64>()
+    bytec 5 // "CONTRIBUTION_ENGAGE"
+    // smart_contracts/realm/contract.algo.ts:38
+    // this.CONTRIBUTION_ENGAGE.value = 1
+    intc_1 // 1
+    app_global_put
     retsub
 
 
 // smart_contracts/realm/contract.algo.ts::Realm.createKingdom(projectName: bytes, projectDescription: bytes, tokenName: bytes, tokenSymbol: bytes, kingdomImage: bytes, kingdomPrmaryColor: bytes, kingdomSecondaryColor: bytes, kingdomBackgroundColor: bytes, kingdomAccentColor: bytes, kingdomTextColor: bytes, feeTransaction: uint64) -> bytes:
 createKingdom:
-    // smart_contracts/realm/contract.algo.ts:48-60
+    // smart_contracts/realm/contract.algo.ts:46-58
     // public createKingdom(
     //   projectName: arc4.Str,
     //   projectDescription: arc4.Str,
@@ -180,7 +215,7 @@ createKingdom:
     //   feeTransaction: gtxn.PaymentTxn,
     // ): KingdomIdType {
     proto 11 1
-    // smart_contracts/realm/contract.algo.ts:97-107
+    // smart_contracts/realm/contract.algo.ts:98-108
     // const appTxn = itxn
     //   .applicationCall({
     //     approvalProgram: compiled.approvalProgram,
@@ -193,25 +228,25 @@ createKingdom:
     //   })
     //   .submit()
     itxn_begin
-    // smart_contracts/realm/contract.algo.ts:105
+    // smart_contracts/realm/contract.algo.ts:106
     // localNumUint: 1,
-    intc_0 // 1
+    intc_1 // 1
     itxn_field LocalNumUint
-    // smart_contracts/realm/contract.algo.ts:103
+    // smart_contracts/realm/contract.algo.ts:104
     // globalNumUint: 7,
     pushint 7 // 7
     itxn_field GlobalNumUint
-    // smart_contracts/realm/contract.algo.ts:102
+    // smart_contracts/realm/contract.algo.ts:103
     // globalNumBytes: 10,
     intc_2 // 10
     itxn_field GlobalNumByteSlice
-    // smart_contracts/realm/contract.algo.ts:94
+    // smart_contracts/realm/contract.algo.ts:95
     // const compiled = compile(Kingdom)
     pushbytes base64(CoEBQw==)
     itxn_field ClearStateProgramPages
-    pushbytes base64(CiADAAEGJgkQTUFYX1RPS0VOX1NVUFBMWQx0b3RhbF9mdW5kZWQNcHJvamVjdF90b2tlbg9UUkVBU1VSWV9BUFBfSUQMUkVBTE1fQVBQX0lEDklOSVRJQUxfU1VQUExZDHByb2plY3RfbmFtZRRUUkVBU1VSWV9BUFBfQUREUkVTUwJfZjEbQQCBggQESSGDJwS5ij3cBHpj8asE9YktVjYaAI4EADAAJAAOAAIiQzEZFEQxGESIA2QjQzEZFEQxGEQxFiMJSTgQIxJEiALZI0MxGRREMRhEiAKDI0MxGRREMRhENhoBNhoCNhoDNhoENhoFNhoGNhoHNhoINhoJNhoKNhoLF4gADSNDMRlA/50xGBREI0OKCwAogYCglKWNHWcnBYGAgN2dpBdnKyJnJwaL9WeAEXByb2plY3RfaW1hZ2VfdXJsi/lngA9wcm9qZWN0X2NyZWF0b3IxAGcnBIv/Z4ATcHJvamVjdF9kZXNjcmlwdGlvbov2Z4AVcHJvamVjdF9wcmltYXJ5X2NvbG9yi/pngBdwcm9qZWN0X3NlY29uZGFyeV9jb2xvcov7Z4AYcHJvamVjdF9iYWNrZ3JvdW5kX2NvbG9yi/xngBRwcm9qZWN0X2FjY2VudF9jb2xvcov9Z4AScHJvamVjdF90ZXh0X2NvbG9yi/5nKSJnsSInBmVEVwIAIihlRIv4VwIAsiWyIiSyI7ImgQOyECKyAbO0PCpLAWcqTGexI7I2gQeyNIEKsjWABAqBAUOyQoDnAQogAgABJgIOdG90YWxfdHJlYXN1cnkRVFJFQVNVUllfQVNTRVRfSUQxG0EAQYICBCFJ/xQEr5Q0dzYaAI4CABgAAiJDMRkURDEYRDEWIwlJOBAjEkSIAH0jQzEZFEQxGEQ2GgEXNhoCF4gADSNDMRlA/88xGBREI0OKAgApi/9nKCJngA90b3RhbF93aXRoZHJhd24iZ7EiKWVEMgoishKyFLIRgQSyECKyAbOADERFVl9UUkVBU1VSWYFQZ4ASQ09NTVVOSVRZX1RSRUFTVVJZgRRniYoBAIv/OAhJRCIoZUQIKExnibJAJLIQIrIBs7Q9SXIIRCcHTGcrSwFnsTIKTHIIRIHQ6AyyCLIHsgAjshAisgGziAABibEyCBYiKmVEFiIrZUQyCrIAshiABCFJ/xSyGkyyGrIaJLIQIrIBs7EiKmVEIicHZUQiKGVEIicFZUQJshKyFLIRgQSyECKyAbOJigEAIicEZUSADmZ1bmRpbmdfZ29hbF8xZUgiKWVEi/84CExLAQhPAg5EIicEZUSAE21pbl9wdXJjaGFzZV9hbW91bnRlSEsBDkQiKGVESwEPRCIpZURLAQgpTGeL/zgAJwhMUEmBCLlISb5MF0xETwIIFr+JJwgxAFC9RQFEiQ==)
+    pushbytes base64(CiACAAEmBAxraW5nZG9tX2NvaW4QTUFYX1RPS0VOX1NVUFBMWQxraW5nZG9tX25hbWUMa2luZ19hZGRyZXNzMRtBAFGCAgRJIYMnBM/8oZA2GgCOAgAOAAIiQzEZFEQxGESIAU4jQzEZFEQxGEQ2GgE2GgI2GgM2GgQ2GgU2GgY2Ggc2Ggg2Ggk2Ggo2GgsXiAANI0MxGUD/vzEYFEQjQ4oLACmBgKCUpY0dZyqL9WeAEWtpbmdkb21faW1hZ2VfdXJsi/lnKzEAZ4AMUkVBTE1fQVBQX0lEi/9ngBNraW5nZG9tX2Rlc2NyaXB0aW9ui/ZngBVraW5nZG9tX3ByaW1hcnlfY29sb3KL+meAF2tpbmdkb21fc2Vjb25kYXJ5X2NvbG9yi/tngBhraW5nZG9tX2JhY2tncm91bmRfY29sb3KL/GeAFGtpbmdkb21fYWNjZW50X2NvbG9yi/1ngBJraW5nZG9tX3RleHRfY29sb3KL/meADHRvdGFsX2Z1bmRlZCJnsSIqZURXAgAiKWVEi/hXAgCyJbIigQayI7ImgQOyECKyAbO0PChLAWcoTGeJiAAciAAZMQAigAdjaXRpemVuY0UBRDEAIitlRBJEiTEAIihlRHAARQFEiQ==)
     itxn_field ApprovalProgramPages
-    // smart_contracts/realm/contract.algo.ts:97-106
+    // smart_contracts/realm/contract.algo.ts:98-107
     // const appTxn = itxn
     //   .applicationCall({
     //     approvalProgram: compiled.approvalProgram,
@@ -224,11 +259,11 @@ createKingdom:
     //   })
     intc_3 // 6
     itxn_field TypeEnum
-    // smart_contracts/realm/contract.algo.ts:101
+    // smart_contracts/realm/contract.algo.ts:102
     // fee: 0,
-    intc_1 // 0
+    intc_0 // 0
     itxn_field Fee
-    // smart_contracts/realm/contract.algo.ts:97-107
+    // smart_contracts/realm/contract.algo.ts:98-108
     // const appTxn = itxn
     //   .applicationCall({
     //     approvalProgram: compiled.approvalProgram,
@@ -242,41 +277,56 @@ createKingdom:
     //   .submit()
     itxn_submit
     itxn CreatedApplicationID
-    // smart_contracts/realm/contract.algo.ts:108
+    // smart_contracts/realm/contract.algo.ts:109
     // return { appId: appTxn.createdApp.id, appAddress: appTxn.createdApp.address }
     dup
     app_params_get AppAddress
     assert // application exists
-    // smart_contracts/realm/contract.algo.ts:64
+    // smart_contracts/realm/contract.algo.ts:62
     // const kingdomId = new KingdomIdType({ appId: new arc4.UintN64(appId) })
     dig 1
     itob
-    // smart_contracts/realm/contract.algo.ts:27
-    // kingdoms = BoxMap<KingdomIdType, KingdomDataType>({ keyPrefix: '_k' })
-    pushbytes "_k"
-    dig 1
-    concat
-    // smart_contracts/realm/contract.algo.ts:66
-    // kingdomContribution: new arc4.UintN64(10),
-    pushbytes 0x000000000000000a
-    // smart_contracts/realm/contract.algo.ts:65-67
-    // this.kingdoms(new KingdomIdType({ appId: new arc4.UintN64(appId) })).value = new KingdomDataType({
-    //   kingdomContribution: new arc4.UintN64(10),
+    // smart_contracts/realm/contract.algo.ts:64
+    // kingdomContribution: new arc4.UintN64(0),
+    pushbytes 0x0000000000000000
+    // smart_contracts/realm/contract.algo.ts:65
+    // kingdomManager: new arc4.Address(Txn.sender),
+    txn Sender
+    // smart_contracts/realm/contract.algo.ts:63-67
+    // this.kingdoms(kingdomId).value = new KingdomDataType({
+    //   kingdomContribution: new arc4.UintN64(0),
+    //   kingdomManager: new arc4.Address(Txn.sender),
+    //   kingdomAddress: new arc4.Address(appAddress),
     // })
+    concat
+    dig 2
+    concat
+    // smart_contracts/realm/contract.algo.ts:28
+    // kingdoms = BoxMap<KingdomIdType, KingdomDataType>({ keyPrefix: '_k' })
+    bytec_1 // "_k"
+    dig 2
+    concat
+    // smart_contracts/realm/contract.algo.ts:63-67
+    // this.kingdoms(kingdomId).value = new KingdomDataType({
+    //   kingdomContribution: new arc4.UintN64(0),
+    //   kingdomManager: new arc4.Address(Txn.sender),
+    //   kingdomAddress: new arc4.Address(appAddress),
+    // })
+    swap
     box_put
-    // smart_contracts/realm/contract.algo.ts:125
+    // smart_contracts/realm/contract.algo.ts:126
     // itxn.payment({ amount: 1400000, receiver: appAddress }).submit()
     itxn_begin
     swap
     itxn_field Receiver
     pushint 1400000 // 1400000
     itxn_field Amount
-    intc_0 // 1
+    intc_1 // 1
     itxn_field TypeEnum
-    intc_1 // 0
+    intc_0 // 0
     itxn_field Fee
     itxn_submit
-    // smart_contracts/realm/contract.algo.ts:126-146
+    // smart_contracts/realm/contract.algo.ts:127-147
     // itxn
     //   .applicationCall({
     //     appArgs: [
@@ -299,10 +349,10 @@ createKingdom:
     //   })
     //   .submit()
     itxn_begin
-    // smart_contracts/realm/contract.algo.ts:140
+    // smart_contracts/realm/contract.algo.ts:141
     // Global.currentApplicationId,
     global CurrentApplicationID
-    // smart_contracts/realm/contract.algo.ts:129-140
+    // smart_contracts/realm/contract.algo.ts:130-141
     // arc4.methodSelector(Kingdom.prototype.createKingdom),
     // projectName,
     // projectDescription,
@@ -316,13 +366,13 @@ createKingdom:
     // projectTextColor,
     // Global.currentApplicationId,
     itob
-    // smart_contracts/realm/contract.algo.ts:144
+    // smart_contracts/realm/contract.algo.ts:145
     // sender: Global.currentApplicationAddress,
     global CurrentApplicationAddress
     itxn_field Sender
-    uncover 2
+    dig 2
     itxn_field ApplicationID
-    // smart_contracts/realm/contract.algo.ts:129
+    // smart_contracts/realm/contract.algo.ts:130
     // arc4.methodSelector(Kingdom.prototype.createKingdom),
     pushbytes 0x49218327 // method "createKingdom(string,string,string,string,string,string,string,string,string,string,uint64)void"
     itxn_field ApplicationArgs
@@ -347,7 +397,7 @@ createKingdom:
     frame_dig -2
     itxn_field ApplicationArgs
     itxn_field ApplicationArgs
-    // smart_contracts/realm/contract.algo.ts:126-145
+    // smart_contracts/realm/contract.algo.ts:127-146
     // itxn
     //   .applicationCall({
     //     appArgs: [
@@ -370,11 +420,11 @@ createKingdom:
     //   })
     intc_3 // 6
     itxn_field TypeEnum
-    // smart_contracts/realm/contract.algo.ts:143
+    // smart_contracts/realm/contract.algo.ts:144
     // fee: 0,
-    intc_1 // 0
+    intc_0 // 0
     itxn_field Fee
-    // smart_contracts/realm/contract.algo.ts:126-146
+    // smart_contracts/realm/contract.algo.ts:127-147
     // itxn
     //   .applicationCall({
     //     appArgs: [
@@ -397,45 +447,220 @@ createKingdom:
     //   })
     //   .submit()
     itxn_submit
-    // smart_contracts/realm/contract.algo.ts:22
+    // smart_contracts/realm/contract.algo.ts:149
+    // this.addContribution(appId, 1)
+    swap
+    intc_1 // 1
+    callsub addContribution
+    // smart_contracts/realm/contract.algo.ts:23
     // total_kingdoms = GlobalState<uint64>()
-    intc_1 // 0
+    intc_0 // 0
     bytec_0 // "total_kingdoms"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/realm/contract.algo.ts:82
+    // smart_contracts/realm/contract.algo.ts:83
     // this.total_kingdoms.value = this.total_kingdoms.value + 1
-    intc_0 // 1
+    intc_1 // 1
     +
-    // smart_contracts/realm/contract.algo.ts:22
+    // smart_contracts/realm/contract.algo.ts:23
     // total_kingdoms = GlobalState<uint64>()
     bytec_0 // "total_kingdoms"
-    // smart_contracts/realm/contract.algo.ts:82
+    // smart_contracts/realm/contract.algo.ts:83
     // this.total_kingdoms.value = this.total_kingdoms.value + 1
     swap
     app_global_put
-    // smart_contracts/realm/contract.algo.ts:83
-    // this.project_contribution(Txn.sender).value += 10
-    txn Sender
-    intc_1 // 0
-    // smart_contracts/realm/contract.algo.ts:26
-    // project_contribution = LocalState<uint64>()
-    bytec_1 // "project_contribution"
-    // smart_contracts/realm/contract.algo.ts:83
-    // this.project_contribution(Txn.sender).value += 10
-    app_local_get_ex
-    assert // check LocalState exists
-    txn Sender
+    // smart_contracts/realm/contract.algo.ts:85
+    // return new KingdomIdType({ appId: kingdomId.appId })
+    extract 0 8 // on error: Index access is out of bounds
+    retsub
+
+
+// smart_contracts/realm/contract.algo.ts::Realm.addContribution(appId: uint64, contributionType: uint64) -> void:
+addContribution:
+    // smart_contracts/realm/contract.algo.ts:157
+    // public addContribution(appId: uint64, contributionType: uint64): void {
+    proto 2 0
+    // smart_contracts/realm/contract.algo.ts:158
+    // const kingdomId = new KingdomIdType({ appId: new arc4.UintN64(appId) })
+    frame_dig -2
+    itob
+    // smart_contracts/realm/contract.algo.ts:28
+    // kingdoms = BoxMap<KingdomIdType, KingdomDataType>({ keyPrefix: '_k' })
+    bytec_1 // "_k"
+    // smart_contracts/realm/contract.algo.ts:161
+    // const boxRef = this.kingdoms(kingdomId)
     swap
-    intc_2 // 10
+    // smart_contracts/realm/contract.algo.ts:28
+    // kingdoms = BoxMap<KingdomIdType, KingdomDataType>({ keyPrefix: '_k' })
+    concat
+    // smart_contracts/realm/contract.algo.ts:161
+    // const boxRef = this.kingdoms(kingdomId)
+    dup
+    // smart_contracts/realm/contract.algo.ts:164
+    // const selectedKingdom = boxRef.value.copy()
+    box_get
+    swap
+    dup
+    uncover 2
+    assert // Box must have value
+    // smart_contracts/realm/contract.algo.ts:167
+    // if (contributionType === 1) {
+    frame_dig -1
+    intc_1 // 1
+    ==
+    bz addContribution_after_if_else@2
+    // smart_contracts/realm/contract.algo.ts:169
+    // selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_SETTLE.value,
+    frame_dig 1
+    dup
+    intc_0 // 0
+    extract_uint64
+    // smart_contracts/realm/contract.algo.ts:20
+    // CONTRIBUTION_SETTLE = GlobalState<uint64>()
+    intc_0 // 0
+    bytec_3 // "CONTRIBUTION_SETTLE"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/realm/contract.algo.ts:169
+    // selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_SETTLE.value,
     +
-    // smart_contracts/realm/contract.algo.ts:26
-    // project_contribution = LocalState<uint64>()
-    bytec_1 // "project_contribution"
-    // smart_contracts/realm/contract.algo.ts:83
-    // this.project_contribution(Txn.sender).value += 10
+    // smart_contracts/realm/contract.algo.ts:168-170
+    // selectedKingdom.kingdomContribution = new arc4.UintN64(
+    //   selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_SETTLE.value,
+    // )
+    itob
+    replace2 0
+    frame_bury 2
+
+addContribution_after_if_else@2:
+    frame_dig 2
+    dup
+    frame_bury 1
+    // smart_contracts/realm/contract.algo.ts:172
+    // if (contributionType === 2) {
+    frame_dig -1
+    pushint 2 // 2
+    ==
     swap
-    app_local_put
-    // smart_contracts/realm/contract.algo.ts:84
-    // return kingdomId
+    frame_bury 2
+    bz addContribution_after_if_else@4
+    // smart_contracts/realm/contract.algo.ts:173
+    // this.isKingdomAddress(selectedKingdom)
+    frame_dig 1
+    callsub isKingdomAddress
+    // smart_contracts/realm/contract.algo.ts:175
+    // selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_DEPLOY.value,
+    dup
+    intc_0 // 0
+    extract_uint64
+    // smart_contracts/realm/contract.algo.ts:21
+    // CONTRIBUTION_DEPLOY = GlobalState<uint64>()
+    intc_0 // 0
+    bytec 4 // "CONTRIBUTION_DEPLOY"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/realm/contract.algo.ts:175
+    // selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_DEPLOY.value,
+    +
+    // smart_contracts/realm/contract.algo.ts:174-176
+    // selectedKingdom.kingdomContribution = new arc4.UintN64(
+    //   selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_DEPLOY.value,
+    // )
+    itob
+    replace2 0
+    frame_bury 2
+
+addContribution_after_if_else@4:
+    frame_dig 2
+    dup
+    frame_bury 1
+    // smart_contracts/realm/contract.algo.ts:178
+    // if (contributionType === 3) {
+    frame_dig -1
+    pushint 3 // 3
+    ==
+    swap
+    frame_bury 2
+    bz addContribution_after_if_else@6
+    // smart_contracts/realm/contract.algo.ts:179
+    // this.isKingdomAddress(selectedKingdom)
+    frame_dig 1
+    callsub isKingdomAddress
+    // smart_contracts/realm/contract.algo.ts:181
+    // selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_ENGAGE.value,
+    dup
+    intc_0 // 0
+    extract_uint64
+    // smart_contracts/realm/contract.algo.ts:22
+    // CONTRIBUTION_ENGAGE = GlobalState<uint64>()
+    intc_0 // 0
+    bytec 5 // "CONTRIBUTION_ENGAGE"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/realm/contract.algo.ts:181
+    // selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_ENGAGE.value,
+    +
+    // smart_contracts/realm/contract.algo.ts:180-182
+    // selectedKingdom.kingdomContribution = new arc4.UintN64(
+    //   selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_ENGAGE.value,
+    // )
+    itob
+    replace2 0
+    frame_bury 2
+
+addContribution_after_if_else@6:
+    // smart_contracts/realm/contract.algo.ts:186
+    // boxRef.value = selectedKingdom.copy()
+    frame_dig 0
+    frame_dig 2
+    box_put
+    retsub
+
+
+// smart_contracts/realm/contract.algo.ts::Realm.isKingdomAddress(selectedKingdom: bytes) -> bytes:
+isKingdomAddress:
+    // smart_contracts/realm/contract.algo.ts:195
+    // private isKingdomAddress(selectedKingdom: KingdomDataType): void {
+    proto 1 1
+    // smart_contracts/realm/contract.algo.ts:196
+    // const senderAppAddress = new arc4.Address(Txn.sender)
+    txn Sender
+    // smart_contracts/realm/contract.algo.ts:198
+    // senderAppAddress === selectedKingdom.kingdomAddress,
+    frame_dig -1
+    extract 40 32 // on error: Index access is out of bounds
+    ==
+    // smart_contracts/realm/contract.algo.ts:197-200
+    // assert(
+    //   senderAppAddress === selectedKingdom.kingdomAddress,
+    //   'Only the kingdom contract can add a contribution for deployment',
+    // )
+    assert // Only the kingdom contract can add a contribution for deployment
+    frame_dig -1
+    retsub
+
+
+// smart_contracts/realm/contract.algo.ts::Realm.getKingdomBoxById(appId: uint64) -> bytes:
+getKingdomBoxById:
+    // smart_contracts/realm/contract.algo.ts:206
+    // public getKingdomBoxById(appId: uint64): KingdomDataType {
+    proto 1 1
+    // smart_contracts/realm/contract.algo.ts:207
+    // const kingdomId = new KingdomIdType({ appId: new arc4.UintN64(appId) })
+    frame_dig -1
+    itob
+    // smart_contracts/realm/contract.algo.ts:208
+    // const selectedKingdom: KingdomDataType = this.kingdoms(new KingdomIdType(kingdomId)).value.copy()
+    extract 0 8 // on error: Index access is out of bounds
+    // smart_contracts/realm/contract.algo.ts:28
+    // kingdoms = BoxMap<KingdomIdType, KingdomDataType>({ keyPrefix: '_k' })
+    bytec_1 // "_k"
+    swap
+    concat
+    // smart_contracts/realm/contract.algo.ts:208
+    // const selectedKingdom: KingdomDataType = this.kingdoms(new KingdomIdType(kingdomId)).value.copy()
+    box_get
+    assert // Box must have value
+    // smart_contracts/realm/contract.algo.ts:210
+    // return selectedKingdom
     retsub

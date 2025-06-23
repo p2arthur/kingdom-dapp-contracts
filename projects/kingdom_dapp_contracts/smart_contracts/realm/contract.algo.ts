@@ -9,21 +9,22 @@ import {
   GlobalState,
   gtxn,
   itxn,
-  LocalState,
   Txn,
   uint64,
 } from '@algorandfoundation/algorand-typescript'
-import { abimethod } from '@algorandfoundation/algorand-typescript/arc4'
 import { Kingdom } from '../kingdom/contract.algo'
 import { KingdomDataType, KingdomIdType } from './config.algo'
 
 export class Realm extends Contract {
   MANAGER_ADDRESS = GlobalState<arc4.Address>()
+  CONTRIBUTION_SETTLE = GlobalState<uint64>()
+  CONTRIBUTION_DEPLOY = GlobalState<uint64>()
+  CONTRIBUTION_ENGAGE = GlobalState<uint64>()
   total_kingdoms = GlobalState<uint64>()
   project_creation_fee = GlobalState<uint64>()
   funding_goal_1 = GlobalState<uint64>()
   min_purchase_amount = GlobalState<uint64>()
-  project_contribution = LocalState<uint64>()
+
   kingdoms = BoxMap<KingdomIdType, KingdomDataType>({ keyPrefix: '_k' })
 
   public createApplication() {
@@ -32,15 +33,12 @@ export class Realm extends Contract {
     this.project_creation_fee.value = 1000000
     this.funding_goal_1.value = 100000000
     this.min_purchase_amount.value = 10000000
+    this.CONTRIBUTION_SETTLE.value = 10
+    this.CONTRIBUTION_DEPLOY.value = 5
+    this.CONTRIBUTION_ENGAGE.value = 1
   }
 
-  @abimethod({ allowActions: 'OptIn' })
-  public optinToApplication() {
-    // Initialize project_contribution for the sender to 0 on opt-in
-    this.project_contribution(Txn.sender).value = 0
-  }
-
-  /*
+  /**
    * @param projectName The name of the project
    * @param feeTransaction The transaction to pay the project creation fee
    * @throws Error if the fee is not enough
@@ -62,9 +60,12 @@ export class Realm extends Contract {
 
     const { appId, appAddress } = this.deployKingdomContract()
     const kingdomId = new KingdomIdType({ appId: new arc4.UintN64(appId) })
-    this.kingdoms(new KingdomIdType({ appId: new arc4.UintN64(appId) })).value = new KingdomDataType({
-      kingdomContribution: new arc4.UintN64(10),
+    this.kingdoms(kingdomId).value = new KingdomDataType({
+      kingdomContribution: new arc4.UintN64(0),
+      kingdomManager: new arc4.Address(Txn.sender),
+      kingdomAddress: new arc4.Address(appAddress),
     })
+
     this.setupKingdom(
       appId,
       appAddress,
@@ -80,8 +81,8 @@ export class Realm extends Contract {
       kingdomTextColor,
     )
     this.total_kingdoms.value = this.total_kingdoms.value + 1
-    this.project_contribution(Txn.sender).value += 10
-    return kingdomId
+
+    return new KingdomIdType({ appId: kingdomId.appId })
   }
   // -------------------------------------------------
 
@@ -144,12 +145,69 @@ export class Realm extends Contract {
         sender: Global.currentApplicationAddress,
       })
       .submit()
+
+    this.addContribution(appId, 1)
   }
+
+  /**
+   * @param kingdomId The id of the project
+   * @param contributionType The type of contribution (1: settle, 2: deploy, 3: engage)
+   */
+  // Contribution methods ---------------------------
+  public addContribution(appId: uint64, contributionType: uint64): void {
+    const kingdomId = new KingdomIdType({ appId: new arc4.UintN64(appId) })
+
+    // Get the box reference
+    const boxRef = this.kingdoms(kingdomId)
+
+    // Work on a copy of the struct
+    const selectedKingdom = boxRef.value.copy()
+
+    // Update the contribution as needed
+    if (contributionType === 1) {
+      selectedKingdom.kingdomContribution = new arc4.UintN64(
+        selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_SETTLE.value,
+      )
+    }
+    if (contributionType === 2) {
+      this.isKingdomAddress(selectedKingdom)
+      selectedKingdom.kingdomContribution = new arc4.UintN64(
+        selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_DEPLOY.value,
+      )
+    }
+    if (contributionType === 3) {
+      this.isKingdomAddress(selectedKingdom)
+      selectedKingdom.kingdomContribution = new arc4.UintN64(
+        selectedKingdom.kingdomContribution.native + this.CONTRIBUTION_ENGAGE.value,
+      )
+    }
+
+    // Write the updated struct back to the box
+    boxRef.value = selectedKingdom.copy()
+  }
+  // ------------------------------------------------
 
   // Modifiers --------------------------------
   private enoughProjectCreationFee(feeTransaction: gtxn.PaymentTxn): void {
     assert(feeTransaction.amount >= this.project_creation_fee.value, 'Not enough project creation fee')
   }
 
+  private isKingdomAddress(selectedKingdom: KingdomDataType): void {
+    const senderAppAddress = new arc4.Address(Txn.sender)
+    assert(
+      senderAppAddress === selectedKingdom.kingdomAddress,
+      'Only the kingdom contract can add a contribution for deployment',
+    )
+  }
+
+  // -------------------------------------------------
+
+  // Getters -----------------------------------------
+  public getKingdomBoxById(appId: uint64): KingdomDataType {
+    const kingdomId = new KingdomIdType({ appId: new arc4.UintN64(appId) })
+    const selectedKingdom: KingdomDataType = this.kingdoms(new KingdomIdType(kingdomId)).value.copy()
+
+    return selectedKingdom
+  }
   // -------------------------------------------------
 }
