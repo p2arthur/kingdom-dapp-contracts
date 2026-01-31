@@ -2,7 +2,7 @@
 
 Welcome to your new AlgoKit project!
 
-This is your workspace root. A `workspace` in AlgoKit is an orchestrated collection of standalone projects (backends, smart contracts, frontend apps and etc).
+This is your workspace root. A `workspace` ins AlgoKit is an orchestrated collection of standalone projects (backends, smart contracts, frontend apps and etc).
 
 By default, `projects_root_path` parameter is set to `projects`. Which instructs AlgoKit CLI to create a new directory under `projects` directory when new project is instantiated via `algokit init` at the root of the workspace.
 
