@@ -1,22 +1,15 @@
-# we_repo_2.0
+# KingdomDapp Contracts
 
-Welcome to your new AlgoKit project!
+An AlgoKit TypeScript contract workspace for KingdomDapp experiments.
 
-This is your workspace root. A `workspace` ins AlgoKit is an orchestrated collection of standalone projects (backends, smart contracts, frontend apps and etc).
+The nested project includes source, deployment configuration, generated artifacts, and Vitest scripts. Read the contract methods and tests for current behavior; compilation and test setup do not imply a deployed or audited application.
 
-By default, `projects_root_path` parameter is set to `projects`. Which instructs AlgoKit CLI to create a new directory under `projects` directory when new project is instantiated via `algokit init` at the root of the workspace.
+## Start reading
 
-## Getting Started
+- [`projects/`](projects/)
 
-To get started refer to `README.md` files in respective sub-projects in the `projects` directory.
+## Development
 
-To learn more about algokit, visit [documentation](https://github.com/algorandfoundation/algokit-cli/blob/main/docs/algokit.md).
+Use Node.js and npm compatible with the versions recorded in the package manifest and lockfile. Each package is installed from its own directory.
 
-### GitHub Codespaces
-
-To get started execute:
-
-1. `algokit generate devcontainer` - invoking this command from the root of this repository will create a `devcontainer.json` file with all the configuration needed to run this project in a GitHub codespace. [Run the repository inside a codespace](https://docs.github.com/en/codespaces/getting-started/quickstart) to get started.
-2. `algokit init` - invoke this command inside a github codespace to launch an interactive wizard to guide you through the process of creating a new AlgoKit project
-
-Powered by [Copier templates](https://copier.readthedocs.io/en/stable/).
+The dependency manifest is [`projects/kingdom_dapp_contracts/package.json`](projects/kingdom_dapp_contracts/package.json). It does not define a complete development-server command. Install dependencies with `npm ci` from its directory, then inspect the source entry point and configuration.
